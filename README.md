@@ -1,6 +1,6 @@
-# express-zip
+# express-zip-eka
 
-express-zip allows you to do `res.zip(files)` in [express](http://expressjs.com/), without creating any intermediary files on disk, and in 100% pure node. [![build status](https://secure.travis-ci.org/thrackle/express-zip.png)](http://travis-ci.org/thrackle/express-zip)
+express-zip-eka allows you to do `res.zip(files)` in [express](http://expressjs.com/), without creating any intermediary files on disk, and in 100% pure node. [![build status](https://secure.travis-ci.org/thrackle/express-zip.png)](http://travis-ci.org/thrackle/express-zip)
 
 ```js
 var app = require('express')();
@@ -10,6 +10,7 @@ app.get('/', function(req, res) {
   res.zip([
     { path: '/path/to/file1.name', name: '/path/in/zip/file1.name' }
     { path: '/path/to/file2.name', name: 'file2.name' }
+    { buffer: bufferArray, name: 'file3.name' }
   ]);
 });
 
@@ -18,7 +19,7 @@ app.listen(3000);
 
 ## Installation
 
-    $ npm install express-zip
+    $ npm install express-zip-eka --save
 
 ## Full API
 
@@ -28,7 +29,7 @@ app.listen(3000);
  * "save as" `filename` (default is attachment.zip), and then call `cb`
  * when finished.
  *
- * @param {Array} files { name: <name>, path: <path> }
+ * @param {Array} files [{ name: <name>, path: <path> },{ name: <name>, buffer: <BufferArray> } ]
  * @param {String|Function} filename that will be shown in "save as" dialog
  * @param {Function} cb(err, bytesZipped) optional
  */
